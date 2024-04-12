@@ -44,6 +44,37 @@ rate of $\lim_{n\to\infty}b(n)/a(n)=1$?
 
 > In the paper *Asymptotics in infinite monoidal categories* we address these questions for certain categories. The most important examples included in our discussion are all finite (having finitely many simple objects) tensor categories.
 
+**The finite case**
+
+Assume that $\mathbf{C}$ has finitely many indecomposable objects up to isomorphism.
+Assume further (only for the sake of this page - the note does not need that assumption) that the **Perron&ndash;Frobenius theorem** holds, that is
+the action matrix of $\mathtt{X}$ has a leading eigenvalue $\lambda_{0}=\mathrm{PFdim}\mathtt{X}$ of multiplicity one that we call 
+the **Perron&ndash;Frobenius dimension** of $\mathtt{X}$. 
+Moreover, the action matrix 
+has some period $h\in\mathbb{N}$ such that there are precisely $h-1$ other eigenvalues 
+$\lambda_{i}=\zeta^{i}\mathrm{PFdim}\mathtt{X}$, and all of these are of multiplicity one, where 
+$\zeta=\exp(2\pi i/h)$.
+
+Take the left and right eigenvectors $v_{i}$ and $w_{i}$, normalized such that the transpose of $w_i$ times $v_i$ is one.
+
+Let $v_{i}w_{i}^{T}[1]$ denote taking the sum of the first column of the matrix 
+$v_{i}w_{i}^{T}$. Define
+
+$$a(n)=\big(v_{0}w_{0}^{T}[1]\cdot 1+v_{1}w_{1}^{T}[1]\cdot\zeta^{n}+v_{2}w_{2}^{T}[1]\cdot(\zeta^{2})^{n}+\dots+v_{h-1}w_{h-1}^{T}[1]\cdot(\zeta^{h-1})^{n}\big)
+\cdot(\mathrm{PFdim}\mathtt{X})^{n}.$$
+
+Let $\lambda^{sec}$ be the second largest eigenvalue of the action matrix of $\mathtt{X}$.
+
+>We have
+$$b(n)\sim a(n)$$
+>and the convergence is geometric with ratio $|\lambda^{sec}/\mathrm{PFdim}\mathtt{X}|$ and th varience is $|b_n-a_n|\leq(\lambda^{sec})^n$.
+
+**Example answer in the infinite case**
+
+For a certain type of categories that we call **sustainably positively recurrent** (these categories include all representation, for arbitary gorund field, categories of finite groups) we, roughly speaking,  obtain:
+
+> All questions above can be answered using limits of finite cutoffs where the finite case above applies.
+
 # The Magma code
 
 Empty so far.
