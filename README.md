@@ -41,3 +41,17 @@ where $a$ is ``nice'', $\sim$ denotes asymptotically equal?
 
 - Say we have found $a$ as in the previous point. Can we bound the **variance** or **mean absolute difference** $|b_{n}-a_{n}|$, or alternatively the convergence 
 rate of $\lim_{n\to\infty}b(n)/a(n)=1$?
+
+> In the paper *Asymptotics in infinite monoidal categories* we address these questions for certain categories. The most important examples included in our discussion are all finite (having finitely many simple objects) tensor categories.
+
+# The Magma code
+
+Empty so far.
+
+# The Mathematica code
+
+Empty so far.
+
+# Erratum
+
+Empty so far.
