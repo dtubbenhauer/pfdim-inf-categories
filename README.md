@@ -78,7 +78,7 @@ For a certain type of categories that we call **sustainably positively recurrent
 # Computer talk disclaimer
 
 The code we present below is very similar to the one on 
-<a "https://github.com/dtubbenhauer/growth-pfdim">https://github.com/dtubbenhauer/growth-pfdim</a>
+<a href="https://github.com/dtubbenhauer/growth-pfdim">https://github.com/dtubbenhauer/growth-pfdim</a>
 so we will be brief.
 
 # The Magma code
