@@ -9,7 +9,7 @@ An Erratum for the paper *Asymptotics in infinite monoidal categories* can be fo
 
 There is also the predecessor of the paper on this page: *Asymptotics in finite monoidal categories*
 <a href="https://arxiv.org/abs/2307.03044">https://arxiv.org/abs/2307.03044</a> with relevant 
-github page <a "https://github.com/dtubbenhauer/growth-pfdim">https://github.com/dtubbenhauer/growth-pfdim</a>.
+github page <a href="https://github.com/dtubbenhauer/growth-pfdim">https://github.com/dtubbenhauer/growth-pfdim</a>.
 
 # Contact
 
