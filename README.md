@@ -234,7 +234,14 @@ instead of the above.
 
 # The Mathematica code
 
-Empty so far.
+The code is hopefully pretty straightforward. All that is happening is that 
+the data created with the Magma code is plotted.
+
+For example:
+
+![The dimension 3 case](https://github.com/dtubbenhauer/pfdim-inf-categories/blob/main/psl2.png)
+
+Let me know if there are any questions!
 
 # Erratum
 
