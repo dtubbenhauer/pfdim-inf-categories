@@ -1,1 +1,1 @@
-# Code and Erratum for Asymptotics in infinite monoidal categories
+# Code and Erratum for *Asymptotics in infinite monoidal categories*
