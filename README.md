@@ -100,7 +100,7 @@ Irr:=IrreducibleModules(G,GF(2));
 M:=Irr[2];
 X:=[Irr[1],Irr[2]];
 nn:=0;
-max:=15;
+max:=10;
 
 while nn lt #X and nn lt max do
 nn+:=1;
@@ -142,7 +142,7 @@ Irr:=IrreducibleModules(G,GF(2)); //Simple modules over the field with two eleme
 M:=Irr[2]; //We take the second, which is of dimension three
 X:=[Irr[1],Irr[2]]; //Starting set (will be filled with all indecomposables that appear in X^(otimes n) below)
 nn:=0; //Start value
-max:=10; //Maximal value (the problem is infinite so we cut it after the 15th step)
+max:=10; //Maximal value (the problem is infinite so we cut it after the 10th step)
 ```
 
 This is the basic setup as described above.
