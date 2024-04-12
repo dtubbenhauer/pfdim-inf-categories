@@ -223,8 +223,8 @@ The appearing matrix can for example then be copied into <a href="https://grapho
 
 ![Cutoff of the fusion graph](https://github.com/dtubbenhauer/pfdim-inf-categories/blob/main/graph.png)
 
-You need to transpose the matrix to get the same 
-drawing conventions as in the paper. This can be done by using
+The online calculator uses the opposite convention as in the paper. Precisely, you need to transpose the matrix to get the same 
+drawing conventions for the fusion graph as in the paper. This can be done by using
 
 ```
 fus[i][j]:=z; //Set the matrix values
