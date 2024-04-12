@@ -75,9 +75,155 @@ For a certain type of categories that we call **sustainably positively recurrent
 
 > All questions above can be answered using limits of finite cutoffs where the finite case above applies.
 
+# Computer talk disclaimer
+
+The code we present below is very similar to the one on 
+<a "https://github.com/dtubbenhauer/growth-pfdim">https://github.com/dtubbenhauer/growth-pfdim</a>
+so we will be brief.
+
 # The Magma code
 
-Empty so far.
+The code can, for example, be run in the online calculator of Magma:
+
+<a href="https://magma.maths.usyd.edu.au/calc/">Magma online</a>
+
+The code we collected is about $G=\mathrm{PSL}(2,7)$ and representations in characteristic $2$ and can be adjusted to 
+other groups easily. In this case there are two three dimensional simple
+representations, and let $\mathtt{X}$ be any of these two. We want to compute the first numbers $b(n)$ -- **the numbers we what to approximate** -- 
+and display its fusion graph.
+
+The code in full is:
+
+```
+G:=PSL(2,7);
+Irr:=IrreducibleModules(G,GF(2));
+M:=Irr[2];
+X:=[Irr[1],Irr[2]];
+nn:=0;
+max:=15;
+
+while nn lt #X and nn lt max do
+nn+:=1;
+M2:=TensorProduct(X[nn],M);
+XM2:=IndecomposableSummands(M2);
+for j in [1..#XM2] do
+new:=1;
+for i in [1..#X] do
+if(IsIsomorphic(XM2[j],X[i])) then
+new:=0;
+end if;
+end for;
+if(new eq 1) then X:=Append(X,XM2[j]); 
+end if;
+end for;
+end while;
+
+fus:=[[0 : i in [1..#X]] : j in [1..#X]];
+
+for i in [1..#X] do
+for j in [1..#X] do
+Z:=IndecomposableSummands(TensorProduct(X[i],M));
+z:=0;
+for k in [1..#Z] do
+if(IsIsomorphic(X[j],Z[k])) then z:=z+1; end if;
+end for;
+fus[j][i]:=z;
+end for;
+end for;
+
+fus
+```
+
+Let us go through the code.
+
+```
+G:=PSL(2,7); //The group
+Irr:=IrreducibleModules(G,GF(2)); //Simple modules over the field with two elements
+M:=Irr[2]; //We take the second, which is of dimension three
+X:=[Irr[1],Irr[2]]; //Starting set (will be filled with all indecomposables that appear in X^(otimes n) below)
+nn:=0; //Start value
+max:=10; //Maximal value (the problem is infinite so we cut it after the 15th step)
+```
+
+This is the basic setup as described above.
+
+```
+while nn lt #X and nn lt max do
+nn+:=1;
+M2:=TensorProduct(X[nn],M); //Take the tensor product
+XM2:=IndecomposableSummands(M2); //Get its summands
+for j in [1..#XM2] do
+new:=1;
+for i in [1..#X] do
+if(IsIsomorphic(XM2[j],X[i])) then //Get rid of isomorphic copies to keep the calculation short
+new:=0;
+end if;
+end for;
+if(new eq 1) then X:=Append(X,XM2[j]); //Append new copies
+end if;
+end for;
+end while; //Repeat ;-)
+```
+
+This part of the code computes the indecomposable summands in X^(otimes n) up to isomorphism. For example, the above returns:
+
+```
+X;
+```
+```
+[
+    GModule of dimension 1 over GF(2),
+    GModule M of dimension 3 over GF(2),
+    GModule of dimension 9 over GF(2),
+    GModule of dimension 8 over GF(2),
+    GModule of dimension 11 over GF(2),
+    GModule of dimension 16 over GF(2),
+    GModule of dimension 17 over GF(2),
+    GModule of dimension 16 over GF(2),
+    GModule of dimension 35 over GF(2),
+    GModule of dimension 8 over GF(2),
+    GModule of dimension 25 over GF(2)
+]
+```
+
+The final part of the code returns the fusion graph on the vertex set given by X:
+
+```
+fus:=[[0 : i in [1..#X]] : j in [1..#X]]; //Set up a zero matrix
+
+for i in [1..#X] do
+for j in [1..#X] do
+Z:=IndecomposableSummands(TensorProduct(X[i],M)); //Get the summands under the action
+z:=0;
+for k in [1..#Z] do
+if(IsIsomorphic(X[j],Z[k])) then z:=z+1; end if; //Count isomorphic summands
+end for;
+fus[j][i]:=z; //Set the matrix values
+end for;
+end for;
+
+fus
+```
+```
+[
+    [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+    [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+    [ 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+    [ 0, 0, 2, 1, 2, 2, 2, 3, 6, 1, 4 ],
+    [ 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0 ],
+    [ 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0 ],
+    [ 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0 ],
+    [ 0, 0, 0, 0, 0, 2, 0, 1, 2, 0, 0 ],
+    [ 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0 ],
+    [ 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0 ],
+    [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0 ]
+]
+```
+The appearing matrix can for example then be copied into <a href="https://graphonline.ru/en/">Graph online</a> which displays it nicely (you need to transpose the matrix to get the same 
+drawing conventions as in the paper):
+
+
+
 
 # The Mathematica code
 
