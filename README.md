@@ -219,11 +219,18 @@ fus
     [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0 ]
 ]
 ```
-The appearing matrix can for example then be copied into <a href="https://graphonline.ru/en/">Graph online</a> which displays it nicely (you need to transpose the matrix to get the same 
-drawing conventions as in the paper):
+The appearing matrix can for example then be copied into <a href="https://graphonline.ru/en/">Graph online</a> which displays it nicely:
 
+![Cutoff of the fusion graph](https://github.com/dtubbenhauer/pfdim-inf-categories/blob/main/graph.png)
 
+You need to transpose the matrix to get the same 
+drawing conventions as in the paper. This can be done by using
 
+```
+fus[i][j]:=z; //Set the matrix values
+```
+
+instead of the above.
 
 # The Mathematica code
 
