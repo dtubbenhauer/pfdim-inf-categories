@@ -1,7 +1,7 @@
 # Code and Erratum for *Asymptotics in infinite monoidal categories*
 
 I collected a bit of Magma and Mathematica code relevant for the paper *Asymptotics in infinite monoidal categories*
-<a href="https://arxiv.org/abs/2307.03044">https://arxiv.org/abs/2307.03044</a> on this page.
+<a href="https://arxiv.org/abs/2404.09513">https://arxiv.org/abs/2404.09513</a> on this page.
 
 The code is in a **.odt** file or **.n** file, respectively, that can be downloaded from this site and you can run it with Magma or Mathematica.
 
